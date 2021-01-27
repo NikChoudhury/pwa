@@ -1,3 +1,4 @@
+const cacheName = 'v1'
 const assets = [
     "/",
     "/scss/style.css",
@@ -9,7 +10,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
     installEvent.waitUntil(
-        caches.open('static').then(cache => {
+        caches.open(cacheName).then(cache => {
             cache.addAll(assets)
         })
     )
@@ -24,7 +25,7 @@ self.addEventListener("fetch", e => {
 })
 
 self.addEventListener('activate', function (event) {
-    var cacheKeeplist = ['cacheName'];
+    var cacheKeeplist = ['cachename'];
 
     event.waitUntil(
         caches.keys().then(function (keyList) {
