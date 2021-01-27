@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="manifest" href="manifest.json" />
     <title>First PWA</title>
     <link rel="stylesheet" href="scss/style.css" />
     <!-- ios support -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/icons/icon72x72.png" />
     <link rel="apple-touch-icon" href="images/icons/icon128x128.png" />
     <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
@@ -15,6 +17,39 @@
   <body>
     <h1>This is My First PWA</h1>
     <div class="box"></div>
+    <div>
+      <p class="ofline-status">YOu are Offline</p>
+    </div>
+    <div>
+      <h1>GGGGG</h1>
+    </div>
     <script src="js/index.js"></script>
+
+    <!-- Online Status -->
+    <script>
+      function onlineStatus(online) {
+        const element = document.querySelector(".ofline-status");
+        // Update the DOM to reflect the current status
+        if (online) {
+          element.style.display = "none";
+        } else {
+          element.style.display = "block";
+        }
+      }
+
+      window.addEventListener("load", () => {
+        onlineStatus(navigator.onLine);
+
+        window.addEventListener("online", () => {
+          // Set onlineStatus to online when they change to online.
+          onlineStatus(true);
+        });
+
+        window.addEventListener("offline", () => {
+          // Set onlineStatus to offline when they change to offline.
+          onlineStatus(false);
+        });
+      });
+    </script>
   </body>
 </html>
