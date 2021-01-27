@@ -1,0 +1,19 @@
+{
+    "name": "Nik PWA",
+    "short_name": "Nik",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#db4938",
+    "orientation": "portrait-primary",
+    "icons":[
+        {
+            "src": "public/images/icons/icon72x72.png",
+            "type": "image/png", "sizes": "72x72"
+        },
+        {
+            "src": "public/images/icons/icon128x128.png",
+            "type": "image/png", "sizes": "128x128"
+        }
+    ]
+}
