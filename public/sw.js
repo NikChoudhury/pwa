@@ -22,3 +22,17 @@ self.addEventListener("fetch", e => {
         })
     )
 })
+
+self.addEventListener('activate', function (event) {
+    var cacheKeeplist = ['cacheName'];
+
+    event.waitUntil(
+        caches.keys().then(function (keyList) {
+            return Promise.all(keyList.map(function (key) {
+                if (cacheKeeplist.indexOf(key) === -1) {
+                    return caches.delete(key);
+                }
+            }));
+        })
+    );
+});
